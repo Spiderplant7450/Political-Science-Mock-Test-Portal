@@ -148,7 +148,7 @@ function displayAnswerKey() {
  * Highlighting the navigator button for the question currently in view
  */
 function setupScrollHighlighting() {
-    const container = document.querySelector('.answer-key-container');
+    const container = document.querySelector('.answer-key-content');
     const options = {
         root: container,
         threshold: [0, 0.1, 0.5, 0.9, 1.0]
