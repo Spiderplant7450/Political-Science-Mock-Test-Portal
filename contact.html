@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Political Science Quiz Portal</title>
+    <link rel="icon" type="image/png" href="assets/Favicon.png">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .doc-page {
+            background-color: #f8fafc;
+            min-height: 100vh;
+        }
+        .doc-hero {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+        .doc-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .doc-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-container {
+            max-width: 700px;
+            margin: -4rem auto 5rem;
+            background: white;
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 5;
+            text-align: center;
+        }
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 2rem;
+        }
+        .contact-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        .email-box {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        .email-box i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        .email-box a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .response-time {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .back-home {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: white;
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-home:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                margin: -2rem 1rem 3rem;
+                padding: 2.5rem 1.5rem;
+            }
+            .doc-hero h1 { font-size: 2.2rem; }
+            .back-home { top: 1rem; left: 1rem; padding: 0.6rem 1rem; font-size: 0.9rem; }
+            .email-box { width: 100%; justify-content: center; }
+            .email-box a { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body class="doc-page">
+    <a href="index.html" class="back-home">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <header class="doc-hero">
+        <h1>Contact Us</h1>
+        <p>Have a question or suggestion? Feel free to reach out.</p>
+    </header>
+
+    <main class="contact-container">
+        <div class="contact-icon">
+            <i class="fas fa-envelope-open-text"></i>
+        </div>
+        
+        <p class="contact-text">
+            If you have any questions, feedback, suggestions, or face any issue while using the platform, you can contact us through email. We value your input and aim to provide the best learning experience.
+        </p>
+
+        <div class="email-box">
+            <i class="fas fa-at"></i>
+            <a href="mailto:kanishk165439i@gmail.com">kanishk165439i@gmail.com</a>
+        </div>
+
+        <p class="response-time">
+            <i class="far fa-clock"></i>
+            We usually reply within 24 to 48 hours.
+        </p>
+    </main>
+</body>
+</html>

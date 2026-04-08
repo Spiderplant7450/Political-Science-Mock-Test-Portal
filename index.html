@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Science Mock Test</title>
+    <link rel="icon" type="image/png" href="assets/Favicon.png">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Home Page -->
+        <section id="home-view" class="view home-page">
+            <div class="home-background"></div>
+
+            <!-- Hero Section -->
+            <header class="hero">
+                <div class="hero-content">
+                    <div class="hero-icon">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h1>Pol. Science Mock Test</h1>
+                    <p>Select a book and chapter to start a mock test to prepare for your exams.</p>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="home-main">
+                <!-- Selection Container -->
+                <div class="selection-container">
+                    <!-- Subject Selection -->
+                    <div class="selection-header">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <label for="subject-trigger">Choose Subject</label>
+                    </div>
+                    <div class="custom-dropdown" id="subject-dropdown">
+                        <div class="dropdown-trigger" id="subject-trigger">
+                            <span id="selected-subject-text">Select Subject</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="dropdown-content" id="subject-dropdown-content">
+                            <div class="chapter-list" id="subject-list">
+                                <!-- Subjects will be injected here by JavaScript -->
+                            </div>
+                            <div class="hint-border"></div>
+                        </div>
+                    </div>
+
+                    <!-- Chapter Selection -->
+                    <div class="selection-header">
+                        <div class="card-icon">
+                            <i class="fa-sharp fa-solid fa-book-open"></i>
+                        </div>
+                        <label for="chapter-select">Choose Chapter</label>
+                    </div>
+                    <div class="custom-dropdown disabled" id="chapter-dropdown">
+                        <div class="dropdown-trigger" id="chapter-trigger">
+                            <span id="selected-chapter-text">Select Chapter</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="dropdown-content" id="chapter-dropdown-content">
+                            <!-- Mode Selection -->
+                            <div class="dropdown-header">
+                                <label class="mode-option">
+                                    <input type="radio" name="selection-mode" value="multi" checked>
+                                    <span class="radio-custom"></span>
+                                    <span class="mode-label">Multi-select mode</span>
+                                </label>
+                                <label class="mode-option">
+                                    <input type="radio" name="selection-mode" value="single">
+                                    <span class="radio-custom"></span>
+                                    <span class="mode-label">Single-select mode</span>
+                                </label>
+                            </div>
+
+                            <!-- Chapter List -->
+                            <div class="chapter-list" id="chapter-list">
+                                <div class="no-subject-msg">Please select a subject first</div>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="dropdown-footer">
+                                <div class="selection-status" id="selection-status">
+                                    <span id="selected-count">0</span> Chapters Selected
+                                </div>
+                                <div class="dropdown-actions">
+                                    <button type="button" class="apply-btn" id="apply-chapters-btn">Apply</button>
+                                    <button type="button" class="clear-btn" id="clear-chapters-btn">Clear</button>
+                                </div>
+                            </div>
+
+                            <!-- Mode Hint -->
+                            <div class="mode-hint" id="mode-hint">
+                                Multi-select mode: 50 random questions, 60-minute limit
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reshuffle Toggle -->
+                    <div class="reshuffle-container">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="reshuffle-toggle" checked>
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-text">Reshuffle Questions</span>
+                        </label>
+                    </div>
+
+                    <!-- Start Test Button -->
+                    <button id="start-test-btn" class="primary-btn" disabled>
+                        <span>Start Test</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Info Banner -->
+                <div class="mobile-info-banner">
+                    <i class="fas fa-desktop"></i>
+                    <div class="mobile-info-content">
+                        <p><strong>Desktop Experience Required:</strong> This website is currently not optimized for
+                            mobile devices. For the best experience, please switch to the "Desktop site" view in your
+                            mobile browser.</p>
+                        <ul class="desktop-steps">
+                            <li><strong>Chrome/Edge:</strong> Tap the 3 dots (⋮) menu &rarr; Check "Desktop site"</li>
+                            <li><strong>Safari:</strong> Tap the "aA" icon &rarr; Tap "Request Desktop Website"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Key Features Divider -->
+                <div class="features-divider">
+                    <span class="line"></span>
+                    <h3 class="features-title">Key Features</h3>
+                    <span class="line"></span>
+                </div>
+
+                <!-- Features Section -->
+                <div class="features-section">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-stopwatch"></i>
+                        </div>
+                        <h4>Timed Practice</h4>
+                        <p>Practice under time pressure, just like the real exam.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Instant Results</h4>
+                        <p>See your score and correct answers right after finishing.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>Performance Analysis</h4>
+                        <p>Know your weak areas and improve chapter by chapter.</p>
+                    </div>
+                </div>
+
+                <!-- Premium How to Use Section -->
+                <section class="how-to-use-wrapper">
+                    <div class="how-to-use-container">
+                        <div class="how-to-use-header">
+                            <span class="badge">Simple Process</span>
+                            <h3 class="premium-title">How It Works</h3>
+                            <p>Get started with your mock tests in 5 easy steps</p>
+                        </div>
+
+                        <div class="timeline-container">
+                            <div class="timeline-step">
+                                <div class="step-number">1</div>
+                                <h4>Choose Subject</h4>
+                                <p>Select your subject</p>
+                            </div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-step">
+                                <div class="step-number">2</div>
+                                <h4>Select Mode</h4>
+                                <p>Single / Multi-select</p>
+                            </div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-step">
+                                <div class="step-number">3</div>
+                                <h4>Select Chapters</h4>
+                                <p>Pick chapters</p>
+                            </div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-step">
+                                <div class="step-number">4</div>
+                                <h4>Start Test</h4>
+                                <p>Begin mock test</p>
+                            </div>
+                            <div class="timeline-connector"></div>
+                            <div class="timeline-step">
+                                <div class="step-number">5</div>
+                                <h4>Get Results</h4>
+                                <p>View performance</p>
+                            </div>
+                        </div>
+
+                        <!-- Start Practice Action -->
+                        <div class="practice-action">
+                            <button id="practice-now-btn" class="primary-btn practice-now-btn">Start Practice
+                                Now</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer Section -->
+                <footer class="home-footer">
+                    <div class="footer-inner">
+                        <div class="footer-top">
+                            <div class="footer-info">
+                                <h4 class="footer-logo">Political Science Quiz</h4>
+                                <p class="footer-description">This platform provides a comprehensive and interactive
+                                    environment for students to master Political Science, offering meticulously crafted
+                                    mock
+                                    tests, real-time results, and detailed performance analysis to ensure academic
+                                    excellence and exam readiness.</p>
+                            </div>
+                            <div class="footer-credits">
+                                <span class="credit-label">Developed & Designed By</span>
+                                <span class="credit-name">Kanishk Mani</span>
+                                <div class="social-minimal">
+                                    <a href="https://www.linkedin.com/in/kanishk-mani-087525321/" target="_blank"
+                                        title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://github.com/Spiderplant7450" target="_blank" title="GitHub"><i
+                                            class="fab fa-github"></i></a>
+                                    <a href="mailto:kanishk165439i@gmail.com" title="Email"><i
+                                            class="fas fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-divider"></div>
+                        <div class="footer-bottom">
+                            <p class="copyright">&copy; 2026 Political Science Mock Portal. All rights reserved.</p>
+                            <div class="footer-links">
+                                <a href="privacy.html">Privacy Policy</a>
+                                <a href="terms.html">Terms of Service</a>
+                                <a href="contact.html">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </main>
+        </section>
+    </div>
+
+    <!-- Pre-Test Instructions Modal -->
+    <div id="instructions-modal-overlay" class="modal-overlay hidden">
+        <div id="instructions-modal" class="modal-content">
+            <div class="modal-header">
+                <h3>Test Instructions & Guidelines</h3>
+            </div>
+            <div class="modal-body instructions-body">
+                <h4 id="instr-test-title">Test Title: {Subject Name} - Mock Examination 2026</h4>
+
+                <h5 class="instr-section-title">General Instructions:</h5>
+                <ul class="instr-list">
+                    <li><strong>Duration:</strong> You will have <span id="instr-duration">60 minutes</span> to complete
+                        the examination.</li>
+                    <li><strong>Question Count:</strong> The test consists of <span id="instr-qcount">50</span> Multiple
+                        Choice Questions (MCQs).</li>
+                    <li><strong>Marking Scheme:</strong> Each correct answer awards +5.00 marks. A penalty of -1.00 mark
+                        is applied for each incorrect response. Unanswered questions receive 0 marks.</li>
+                    <li><strong>Navigation:</strong> You can move between questions using the Question Palette on the
+                        right side of the screen.</li>
+                    <li><strong>Review System:</strong> You may use the "Mark for Review" button to flag questions you
+                        wish to revisit later.</li>
+                </ul>
+
+                <h5 class="instr-section-title">Important Rules:</h5>
+                <div class="instr-rules">
+                    <ol>
+                        <li><strong>Fullscreen Mode:</strong> You can enter Fullscreen Mode for a more immersive experience using the toggle button in the header. Exiting fullscreen or navigating away will trigger a security warning.</li>
+                        <li><strong>Auto-Submit:</strong> The test will automatically submit once the timer reaches
+                            00:00:00. Ensure all your answers are saved before time expires.</li>
+                        <li><strong>Evaluations:</strong> Only questions that are "Saved" or "Answered & Marked for
+                            Review" will be considered for the final score. Questions marked for review without saving
+                            an answer will NOT be evaluated.</li>
+                        <li><strong>No Pausing:</strong> Once started, the timer cannot be paused or stopped. Plan your
+                            time management accordingly.</li>
+                        <li><strong>Exit Warning:</strong> Exiting the test before submission will result in complete
+                            loss of progress. There is no option to resume the test.</li>
+                        <li><strong>Single Attempt:</strong> Each test configuration can only be attempted once per
+                            session. Refreshing or closing the browser will terminate your attempt.</li>
+                    </ol>
+                </div>
+
+                <h5 class="instr-section-title">Question Status Guide:</h5>
+                <div class="instr-status-grid">
+                    <div class="instr-status-item">
+                        <div class="status-box answered"></div> Answered (Green)
+                    </div>
+                    <div class="instr-status-item">
+                        <div class="status-box not-answered"></div> Not Answered (Red)
+                    </div>
+                    <div class="instr-status-item">
+                        <div class="status-box not-visited"></div> Not Visited (Gray)
+                    </div>
+                    <div class="instr-status-item">
+                        <div class="status-box review"></div> Marked for Review (Purple)
+                    </div>
+                    <div class="instr-status-item full-width">
+                        <div class="status-box answered-review"></div> Answered & Marked for Review (Green-Purple)
+                    </div>
+                </div>
+
+                <h5 class="instr-section-title">Best Practices:</h5>
+                <ul class="instr-list best-practices">
+                    <li><i class="fas fa-check"></i> Read each question carefully before selecting your answer</li>
+                    <li><i class="fas fa-check"></i> Use "Save & Next" to confirm your response before moving forward
+                    </li>
+                    <li><i class="fas fa-check"></i> Utilize the "Mark for Review" feature for questions you're
+                        uncertain about</li>
+                    <li><i class="fas fa-check"></i> Monitor the remaining time regularly using the timer in the header
+                    </li>
+                    <li><i class="fas fa-check"></i> Review all marked questions before final submission</li>
+                    <li><i class="fas fa-check"></i> Ensure you have a stable internet connection throughout the test
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="secondary-btn" id="instr-cancel-btn"><i class="fas fa-arrow-left"></i> Go Back</button>
+                <button class="primary-btn" id="instr-continue-btn">I Understand, Continue <i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/registry.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>
