@@ -31,6 +31,48 @@
 }
 
 /* ==========================================================================
+   HEADER ACTIONS (Top Right Buttons)
+   ========================================================================== */
+.header-actions {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 100;
+}
+
+.timeline-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    font-family: 'Outfit', sans-serif;
+}
+
+.timeline-nav-btn i {
+    font-size: 1.1rem;
+}
+
+.timeline-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.timeline-nav-btn:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
    HERO SECTION
    
    Top section with app title and description
@@ -115,6 +157,14 @@
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.feature-card.clickable {
+    cursor: pointer;
+}
+
+.feature-card.clickable:active {
+    transform: scale(0.98);
 }
 
 /* Icon circle in feature card */
