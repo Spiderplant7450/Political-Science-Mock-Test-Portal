@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewTrigger = document.getElementById('view-trigger');
     const bookTrigger = document.getElementById('book-trigger');
     const chapterTrigger = document.getElementById('chapter-trigger');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
 
     // Dropdown Panels
     const viewDropdownContent = document.getElementById('view-dropdown-content');
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function init() {
         populateViewDropdown();
         populateBookDropdown();
-        
+
         setupEventListeners();
         filterAndRender();
     }
@@ -56,6 +57,27 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             if (!bookTrigger.parentElement.classList.contains('disabled')) {
                 toggleDropdown(bookDropdownContent, bookTrigger);
+            }
+        });
+        // Fullscreen Toggle Logic
+        fullscreenBtn.addEventListener('click', () => {
+            const icon = fullscreenBtn.querySelector('i');
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                icon.classList.replace('fa-expand', 'fa-compress');
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    icon.classList.replace('fa-compress', 'fa-expand');
+                }
+            }
+        });
+
+        // Sync icon if user exits using ESC key
+        document.addEventListener('fullscreenchange', () => {
+            const icon = fullscreenBtn.querySelector('i');
+            if (!document.fullscreenElement) {
+                icon.classList.replace('fa-compress', 'fa-expand');
             }
         });
 
@@ -132,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const books = Object.keys(psData);
 
         bookOptionsList.innerHTML = '';
-        
+
         // "All Books" option
         const allOption = { id: 'all', label: 'All Books' };
         const allItem = createRadioItem(allOption, currentBook === 'all', () => selectBook(allOption));
@@ -147,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function populateChapterDropdown(bookName) {
         chapterOptionsList.innerHTML = '';
-        
+
         if (!bookName || bookName === 'all') {
             currentChapter = 'all';
             selectedChapterText.textContent = 'All Chapters';
@@ -155,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const chapters = timelineRegistry[bookName];
-        
+
         // "All Chapters" option
         const allOption = { id: 'all', label: 'All Chapters' };
         const allItem = createCheckItem(allOption, currentChapter === 'all', () => selectChapter(allOption));
@@ -199,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function selectView(opt) {
         currentView = opt.id;
         selectedViewText.textContent = opt.label;
-        
+
         // Contextual enabling/disabling
         const bookDropdown = document.getElementById('book-dropdown');
         const chapterDropdown = document.getElementById('chapter-dropdown');
@@ -229,12 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function selectBook(opt) {
         currentBook = opt.id;
         selectedBookText.textContent = opt.label;
-        
+
         // When book changes, reset chapter to all and rebuild list
         currentChapter = 'all';
         selectedChapterText.textContent = 'All Chapters';
         populateChapterDropdown(currentBook);
-        
+
         populateBookDropdown();
         closeAllDropdowns();
         filterAndRender();
@@ -243,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function selectChapter(opt) {
         currentChapter = opt.id;
         selectedChapterText.textContent = opt.label;
-        
+
         populateChapterDropdown(currentBook);
         closeAllDropdowns();
         filterAndRender();
@@ -316,6 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="timeline-node"></div>
                 <div class="timeline-year">${event.year}</div>
             `;
+
 
             timelineContainer.appendChild(timelineItem);
         });
