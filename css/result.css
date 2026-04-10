@@ -776,7 +776,7 @@
 }
 
 .breakdown-table th:nth-child(3) {
-    width: 180px;
+    width: 200px;
 }
 
 .breakdown-table th:nth-child(4) {
@@ -816,17 +816,18 @@
 .status-pill {
     display: inline-flex;
     align-items: center;
-    justify-content: left;
-    gap: 0.6rem;
-    padding: 0.6rem 14px 0.6rem 8px;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 30px;
     font-weight: 600;
-    font-size: 18px;
-    width: 144.672px;
+    font-size: 16px;
+    min-width: 140px;
+    white-space: nowrap;
 }
 
 .status-pill i {
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .status-pill.success {

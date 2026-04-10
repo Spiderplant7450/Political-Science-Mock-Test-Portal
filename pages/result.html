@@ -17,9 +17,17 @@
     <title>Results - Mock Test Portal</title>
     <link rel="icon" type="image/png" href="../assets/Favicon.png">
 
+    <!-- Theme Flash Prevention (must be before CSS) -->
+    <script>
+        (function(){var t=localStorage.getItem('theme-preference')||'light';
+        if(t==='auto')t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+        document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/result.css">
+    <link rel="stylesheet" href="../css/theme.css">
 
     <!-- Google Fonts -->
     <link
@@ -201,6 +209,7 @@
     <script src="../js/registry.js"></script>
     <script src="../js/common.js"></script>
     <script src="../js/result.js"></script>
+    <script src="../js/theme.js"></script>
 </body>
 
 </html>
